@@ -1,0 +1,66 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="{%static'css/styles.css'%}">
+
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container-fluid p-0 min-vh-100 d-flex align-items-stretch">
+        <div class="row g-0 w-100">
+
+            <div
+                class="col-lg-5 bg-brand-green d-flex flex-column align-items-center justify-content-center text-white text-center p-4">
+                <div class="logo-circle mb-4">
+                    <span class="logo-text">FCA</span>
+                </div>
+                <img src="{% static 'images/fca-logo.jpg' %}" alt="the logo">
+                <h2 class="program-title">Refugee Support Program</h2>
+            </div>
+            <div class="col-lg-7 d-flex align-items-center justify-content-center p-4 p-md-5 bg-light-gray">
+                <div class="form-container w-100">
+                    <h1> BENEFIARY REGISTRATION FORM</h1>
+                    <form method="post" novalidate class="">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6 mb-4">{{ form.First_Name|as_crispy_field }}</div>
+                            <div class="col-md-6 mb-4">{{ form.Last_Name|as_crispy_field }}</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-4">{{ form.Date_of_Birth|as_crispy_field }}</div>
+                            <div class="col-md-6 mb-4">{{ form.Place_of_Birth|as_crispy_field }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mb-4">{{ form.Gender|as_crispy_field }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-4">{{ form.Nationality|as_crispy_field }}</div>
+                            <div class="col-md-6 mb-4">{{ form.Marital_Status|as_crispy_field }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-4">{{ form.Settlement_camp|as_crispy_field }}</div>
+                            <div class="col-md-6 mb-4">{{ form.Date_of_joining_Settlement_camp|as_crispy_field }}</div>
+                        </div>
+
+                </div>
+                <div class="column mt-4">
+                    <button type="submit" class="btn btn-register w-100 py-3">Register</button>
+                    </form>
+                </div>
+            </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+
+</html>
